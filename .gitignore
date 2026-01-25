@@ -1,0 +1,3 @@
+logs/
+*.bak
+.claude-code-router.pid

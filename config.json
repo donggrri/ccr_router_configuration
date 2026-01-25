@@ -1,0 +1,89 @@
+{
+  "LOG": true,
+  "LOG_LEVEL": "info",
+  "CLAUDE_PATH": "",
+  "HOST": "127.0.0.1",
+  "PORT": 3456,
+  "APIKEY": "",
+  "API_TIMEOUT_MS": "600000",
+  "PROXY_URL": "",
+  "transformers": [
+    {
+      "path": "/home/dongjin/.claude-code-router/plugins/gemini-cli.js",
+      "options": {
+        "project": "claude-code-router-477213"
+      }
+    },
+    {
+      "path": "/home/dongjin/.claude-code-router/plugins/chatgpt-oauth.js"
+    }
+  ],
+  "Providers": [
+    {
+      "name": "gemini-cli",
+      "api_base_url": "https://cloudcode-pa.googleapis.com/v1internal",
+      "api_key": "oauth-managed",
+      "models": [
+        "gemini-2.5-flash",
+        "gemini-2.5-pro",
+        "gemini-3-pro-preview",
+        "gemini-3-flash-preview"
+      ],
+      "transformer": {
+        "use": [
+          "gemini-cli"
+        ]
+      }
+    },
+    {
+      "name": "antigravity",
+      "api_base_url": "http://localhost:8080/v1/messages",
+      "api_key": "test",
+      "models": [
+        "claude-sonnet-4-5-thinking",
+        "claude-opus-4-5-thinking",
+        "gemini-3-flash",
+        "gemini-3-pro-high"
+      ],
+      "transformer": {
+        "use": [
+          "Anthropic"
+        ]
+      }
+    },
+    {
+      "name": "chatgpt-codex",
+      "api_base_url": "https://chatgpt.com/backend-api/codex/responses",
+      "api_key": "oauth-managed",
+      "models": [
+        "gpt-5.2-codex",
+        "gpt-5.1-codex-mini"
+      ],
+      "transformer": {
+        "use": [
+          "chatgpt-oauth"
+        ]
+      }
+    }
+  ],
+  "StatusLine": {
+    "enabled": false,
+    "currentStyle": "default",
+    "default": {
+      "modules": []
+    },
+    "powerline": {
+      "modules": []
+    }
+  },
+  "Router": {
+    "default": "antigravity,claude-opus-4-5-thinking",
+    "background": "antigravity,gemini-3-flash",
+    "think": "chatgpt-codex,gpt-5.2-codex",
+    "longContext": "antigravity,claude-opus-4-5-thinking",
+    "longContextThreshold": 60000,
+    "webSearch": "antigravity,claude-sonnet-4-5-thinking",
+    "image": "antigravity,claude-sonnet-4-5-thinking"
+  },
+  "CUSTOM_ROUTER_PATH": ""
+}
