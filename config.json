@@ -16,6 +16,12 @@
     },
     {
       "path": "/home/dongjin/.claude-code-router/plugins/chatgpt-oauth.js"
+    },
+    {
+      "path": "/home/dongjin/.claude-code-router/plugins/moonshot-openai.js"
+    },
+    {
+      "path": "/home/dongjin/.claude-code-router/plugins/kimi-anthropic.js"
     }
   ],
   "Providers": [
@@ -62,6 +68,35 @@
       "transformer": {
         "use": [
           "chatgpt-oauth"
+        ]
+      }
+    },
+    {
+      "name": "moonshot",
+      "api_base_url": "https://api.moonshot.ai/v1",
+      "api_key": "",
+      "models": [
+        "kimi-k2.5",
+        "moonshot-v1-8k",
+        "moonshot-v1-32k",
+        "moonshot-v1-128k"
+      ],
+      "transformer": {
+        "use": [
+          "moonshot-openai"
+        ]
+      }
+    },
+    {
+      "name": "kimi-coding",
+      "api_base_url": "https://api.kimi.com/coding/",
+      "api_key": "$KIMI_API_KEY",
+      "models": [
+        "kimi-for-coding"
+      ],
+      "transformer": {
+        "use": [
+          "kimi-anthropic"
         ]
       }
     }
